@@ -32,14 +32,13 @@ public class UserMealsUtil {
     public static List<UserMealWithExcess> filteredByCycles(List<UserMeal> meals, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
         // TODO return filtered list with excess. Implement by cycles
 
-        int eatenCalories = 0;
         List<UserMealWithExcess> userMealWithExcesses = new ArrayList<>();
 
 
         for(UserMeal meal : meals){
 
             if (meal.getDateTime().isAfter(ChronoLocalDateTime.from(startTime)) && meal.getDateTime().isBefore(ChronoLocalDateTime.from(endTime))){
-                eatenCalories += meal.getCalories();
+
                 userMealWithExcesses.add(new UserMealWithExcess(meal.getDateTime(), meal.getDescription(), meal.getCalories(), false));
             }
         }
